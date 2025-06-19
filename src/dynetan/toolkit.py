@@ -41,9 +41,9 @@ def getNGLSelFromNode(nodeIndx: int, atomsel: mda.AtomGroup, atom: bool = True) 
     """
     node = atomsel.atoms[nodeIndx]
     if atom:
-        return " and ".join([str(node.resid), node.resname, "." + node.name])
+        return f":{node.chainID} and {node.resid} and {node.resname} and .{node.name}"
     else:
-        return " and ".join([str(node.resid), node.resname])
+        return f":{node.chainID} and {node.resid} and {node.resname}"
 
 
 def getNodeFromSel(selection: str,
